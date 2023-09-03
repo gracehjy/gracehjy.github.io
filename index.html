@@ -56,8 +56,10 @@
             </div>
             <div class="about-text">
                 <h2>About Me</h2>
-                <h4>First Year Undergraduate Student</h4>
-                <p>I'm currently a student at Washington University in St. Louis pursuing a bachelor's degree in Computer Science + Mathematics. I have always felt passionate about the tech industry, but recently my feelings for it have grown much deeper. To me, technology serves as an integral part of our modern world as it plays a primary role in connecting vast communities with one another. From social media platforms to messaging applications and even simple phone calls, technology is what keeps the billions of people in our world interconnected. This was especially evident when COVID-19 started spreading and several countries went on lockdown. This interconnectivity inspires me, which is why I chose to major in computer science. With the resources provided to me, I hope to help foster an environment perfect for virtual human interaction.</p>
+                <h4>Second Year Undergraduate Student</h4>
+                <p>I am currently a student at Washington University in St. Louis pursuing a bachelor's degree in Computer Science + Mathematics. To me, technology serves as an integral part of our modern world as it plays a very important role in connecting vast communities with one another. From social media platforms to messaging applications and even simple phone calls, technology is what keeps the billions of people in our society interconnected. This was especially evident at the start of COVID-19, and this interconnectivity is what inspired me to pursue computer science.</p>
+                <br>
+                <p>Outside of academics, my interests lie in playing video games, finding new music to listen to, hitting up the badminton courts with my friends, traveling, and trying new foods (follow @twojiaozi on Instagram)!</p>
             </div>
         </section>
     </div>
@@ -84,6 +86,14 @@
                     <p>CSE 247 - Data Structures and Algorithms</p>
                     <p>MATH 3200 - Elementary to Intermediate Statistics and Data Analysis</p>
                 </div>
+
+                <div class="course-text-three">
+                    <h4>Fall 2023</h4>
+                    <p>CSE 217 - Introduction to Data Science</p>
+                    <p>CSE 332S - Object-Oriented Software Development Laboratory</p>
+                    <p>MATH 309 - Matrix Algebra</p>
+                    <p>MATH 310 - Foundations for Higher Mathematics</p>
+                </div>
             </div>
         </section>
     </div>
@@ -96,7 +106,7 @@
                 <h4>See What I've Been Up To!</h4>
             </div>
             <div class="button">
-                <a href="Grace_Resume March 2023.pdf" class="btn">View Resume</a>
+                <a href="Grace-Huang-Sept-Resume.pdf" class="btn">View Resume</a>
             </div>
         </section>
     </div>
@@ -117,17 +127,49 @@
                     <a href="https://www.linkedin.com/in/grace-huang-b206a7250"><i class='bx bxl-linkedin-square'></i></a>
                 </div>
             </div>
+
+            <!--contact form-->
             <div class="contact-form">
                 <form method="POST" action="form.php" name="form">
-                    <input type="name" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email Address" required>
-                    <textarea name="message" id="" cols="35" rows="10" placeholder="Your Message"></textarea>
-                    <input type="submit" value="Send Message" class="submit" required>
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email Address" required>
+                    <input type="text" id="subject" placeholder="Subject" required>
+                    <textarea id="message" cols="35" rows="10" placeholder="Your Message"></textarea>
+                    <button id="submit">Send Message</button>
                 </form>
             </div>
+
+            <!--use smtpjs to send messages to email-->
+            <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+            <!--make the form functional-->
+            <script>
+                var btn = document.getElementById("submit");
+                btn.addEventListener('click', function(e){
+                    e.preventDefault();
+                    var name = document.getElementById('name').value;
+                    var email = document.getElementById('email').value;
+                    var subject = document.getElementById('subject').value;
+                    var message = document.getElementById('message').value;
+                    var body = 'name: '+name + '<br/> email: '+ email + '<br/> subject: '+ subject + '<br/> message: '+ message;
+
+                    Email.send({
+                        SecureToken : "2201ab8b-2685-4ed7-8aba-b765cce4920f",
+                        To : 'g_huang21@yahoo.com',
+                        From : 'grhua22@gmail.com',
+                        Subject : "new message from personal website",
+                        Body : body
+                    }).then(
+                        message => alert(message)
+                    );
+                });
+            </script>
+
         </section>    
     </div>
-    <!--custom js link-->
+
+    <footer> This website design was inspired by <a href="https://youtu.be/EQ7Ze3eGAgI?si=13GPuFHYbhChD35a">Tahmid Ahmed</a>.</footer>
+    <!--custom js for scrolling/reveal effect-->
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

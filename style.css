@@ -176,7 +176,6 @@ header.sticky{
 }
 
 .home-img img{
-    max-width: 530px;
     height: auto;
     width: 100%;
     border-radius: 8px;
@@ -320,7 +319,8 @@ header.sticky{
     height: 240px;
 }
 
-.contact-form .submit{
+.contact-form #submit{
+    width: 100%;
     display: inline-block;
     padding: 12px 28px;
     background: var(--main-color);
@@ -330,12 +330,23 @@ header.sticky{
     letter-spacing: 1px;
     font-weight: 600;
     transition: all .45s ease;
+    border: none;
 }
 
-.contact-form .submit:hover{
+.contact-form #submit:hover{
     transform: scale(0.95);
     cursor: pointer;
 }
+
+footer{
+    padding: 25px;
+    text-align: center;
+}
+
+footer a{
+    color: var(--main-color);
+}
+
 
 @media (max-width: 1200px){
     header{
